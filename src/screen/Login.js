@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {
   StyleSheet,
@@ -9,13 +10,19 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   Keyboard,
+  StatusBar,
 } from 'react-native';
 import { Icon } from 'react-native-elements';
 
 export default function LoginScreen1() {
+    const navigation =useNavigation()
+    const handleLogin=()=>{
+        navigation.navigate("Weather")
+    }
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container}>
+          <StatusBar hidden={true}/>
         <View style={styles.bigCircle}></View>
         <View style={styles.smallCircle}></View>
         <View style={styles.centerizedView}>
@@ -37,6 +44,7 @@ export default function LoginScreen1() {
                 // autoCapitalize={false}
                 keyboardType='email-address'
                 textContentType='emailAddress'
+                placeholder='Email'
               />
             </View>
             <View style={styles.inputBox}>
@@ -46,9 +54,10 @@ export default function LoginScreen1() {
                 // autoCapitalize={false}
                 secureTextEntry={true}
                 textContentType='password'
+                placeholder='password'
               />
             </View>
-            <TouchableOpacity style={styles.loginButton}>
+            <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
               <Text style={styles.loginButtonText}>Login</Text>
             </TouchableOpacity>
             <TouchableOpacity>
@@ -56,7 +65,7 @@ export default function LoginScreen1() {
                 Don't have an account? Register Now
               </Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity >
               <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
             </TouchableOpacity>
           </View>

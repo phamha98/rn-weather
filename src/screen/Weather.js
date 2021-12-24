@@ -14,6 +14,7 @@ import {
 } from 'react-native'
 import img from '../img/index'
 import {AppContext} from './AppContext'
+import { useNavigation } from '@react-navigation/native';
 
 export default function Weather () {
   const {cityName, setCityName, background, setBackground} = useContext(
@@ -88,7 +89,7 @@ export default function Weather () {
       </View>
     )
   }
-
+const navigation=useNavigation()
   return (
     <SafeAreaView style={{flex:1}}>
       <View style={styles.container}>
@@ -111,6 +112,15 @@ export default function Weather () {
               color="red"
               size={40}
             />
+             <Ionicons
+                name="logo-youtube"
+                style={{ position: "absolute", right: 5, top: 4 }}
+                size={40}
+                color="red"
+                onPress={() => {
+                  navigation.navigate("Sos")
+                }}
+              />
             </View>
           )}
           {isSearch && (
@@ -136,6 +146,7 @@ export default function Weather () {
                   return useFetch();
                 }}
               />
+             
               </View>
               <View style={{marginHorizontal: 20, marginVertical: 8}}>
                 <FlatList

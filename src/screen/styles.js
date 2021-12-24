@@ -18,9 +18,9 @@ const styles = StyleSheet.create({
   },
   viewSearch: {
     marginTop: 20,
-    marginHorizontal: 20,
+    marginHorizontal: 0,
     minHeight: 50,
-    justifyContent: "center",
+    // justifyContent: "center",
     alignItems: "center",
     borderRadius: 5,
     flexDirection: "row",
